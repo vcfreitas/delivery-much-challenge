@@ -1,0 +1,13 @@
+{
+  "title": "Recipe Puppy",
+  "version": 0.1,
+  "href": "http://www.recipepuppy.com/",
+  "results": [
+    {
+      "title": "Steamed Mussels I",
+      "href": "http://allrecipes.com/Recipe/Steamed-Mussels-I/Detail.aspx",
+      "ingredients": "garlic, mussels, onions",
+      "thumbnail": "http://img.recipepuppy.com/29318.jpg"
+    }
+  ]
+}

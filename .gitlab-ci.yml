@@ -1,0 +1,37 @@
+image: node:14.15.4
+
+variables:
+  RECIPEPUPPY_URL: $RECIPEPUPPY_URL
+  GIPHY_URL: $GIPHY_URL
+  GIPHY_API_TOKEN: $GIPHY_API_TOKEN
+  GIPHY_API_LIMIT: $GIPHY_API_LIMIT
+
+cache:
+  key: node-modules-cache
+  paths:
+  - node_modules/
+  
+  
+stages:
+  - test
+  - lint
+
+test:
+  stage: test
+  before_script:
+    - npm install --unsafe-perm
+  script:
+    - npm test
+    - cat coverage/lcov-report/index.html
+  coverage: '/All\sfiles.*?\s+(\d+.\d+)/'
+  artifacts:
+    paths:
+      - coverage/
+    expire_in: 20 minutes
+
+lint:
+  stage: lint
+  before_script:
+    - npm install --unsafe-perm
+  script:
+    - npm run eslint
